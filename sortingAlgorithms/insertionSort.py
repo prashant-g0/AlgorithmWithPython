@@ -8,25 +8,30 @@
 # Auxiliary Space: O(1)
 
 def insertionSort(arr):
-	# If the array has 0 or 1 element; sorted
-	if len(arr) <= 1:
-		return 
+    # If the array has 0 or 1 element; sorted
+    if len(arr) <= 1:
+        return arr
 
-# Iterate over the array starting from the second element
-	for i in range(1, len(arr)): 
-# Store the current element as the key 
-		key = arr[i] 
-		j = i-1
-# Shift elements to the right
-		while j >= 0 and key < arr[j]: 
-			arr[j+1] = arr[j] 
-			j -= 1
-# Insert the key in the correct position
-		arr[j+1] = key 
+    # Iterate over the array starting from the second element
+    for i in range(1, len(arr)):
+        # Store the current element as the key 
+        current = arr[i]
+        j = i - 1
+        
+        # Shift elements to the right until the correct position for current is found
+        while j >= 0 and current < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        
+        # Insert the key in the correct position
+        arr[j + 1] = current
+
+    return arr
 
 # driver code
 arr = [21, 11, 31, 15, 61]
 print(insertionSort(arr))
+
 
 
 
